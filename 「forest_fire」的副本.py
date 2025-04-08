@@ -14,14 +14,18 @@ st.write("Upload an image to check if it shows signs of a forest fire.")
 # Function to download and load model
 import gdown
 
+import gdown
+from tensorflow.keras.models import load_model
+import os
+
 @st.cache_resource
 def download_and_load_model():
     model_path = "forest_fire_detector.h5"
     if not os.path.exists(model_path):
-        folder_id = "1xAbCdEfGh1234"  # Your shared folder ID
-        gdown.download_folder(id=folder_id, quiet=False, use_cookies=False)
+        # Use fuzzy=True to bypass Drive's warning page
+        url = "https://drive.google.com/file/d/1sQjGhSczD1sIRTMM-OTuk9qcIbddUHwd/view?usp=drive_link"
+        gdown.download(url, model_path, fuzzy=True, quiet=False)
     return load_model(model_path)
-
 model = download_and_load_model()
 
 # Class labels used during training
