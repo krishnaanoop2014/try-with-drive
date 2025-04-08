@@ -12,12 +12,14 @@ st.title("🔥 Forest Fire Detection App 🌲")
 st.write("Upload an image to check if it shows signs of a forest fire.")
 
 # Function to download and load model
+import gdown
+
 @st.cache_resource
 def download_and_load_model():
     model_path = "forest_fire_detector.h5"
     if not os.path.exists(model_path):
-        file_id = "1sQjGhSczD1sIRTMM-OTuk9qcIbddUHwd"  # ✅ Your actual file ID
-        gdown.download(f"https://drive.google.com/uc?id={file_id}", model_path, quiet=False)
+        folder_id = "1xAbCdEfGh1234"  # Your shared folder ID
+        gdown.download_folder(id=folder_id, quiet=False, use_cookies=False)
     return load_model(model_path)
 
 model = download_and_load_model()
