@@ -107,7 +107,7 @@ print(f'Test Accuracy: {acc*100:.2f}%')
 model.save('forest_fire_detector.h5')
 model.save_weights('forest_fire_detector.weights.h5')
 
-!pip install streamlit
+
 import streamlit as st
 
 @st.cache_resource
