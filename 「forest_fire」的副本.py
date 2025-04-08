@@ -23,7 +23,7 @@ def download_and_load_model():
     model_path = "forest_fire_detector.h5"
     if not os.path.exists(model_path):
         # Use fuzzy=True to bypass Drive's warning page
-        url = "https://drive.google.com/file/d/1sQjGhSczD1sIRTMM-OTuk9qcIbddUHwd/view?usp=drive_link"
+        url ="https://drive.google.com/file/d/1sQjGhSczD1sIRTMM-OTuk9qcIbddUHwd/view?usp=sharing"
         gdown.download(url, model_path, fuzzy=True, quiet=False)
     return load_model(model_path)
 model = download_and_load_model()
